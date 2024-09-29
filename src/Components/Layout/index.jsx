@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar } from "../Navbar";
+import { Footer } from "../Footer";
 export const LayoutContent = (props) => {
     const {children,listMenu,logo} = props;
     return (
@@ -8,6 +9,7 @@ export const LayoutContent = (props) => {
         <div className="container min-h-screen mx-auto bg-gray-400">
         {children}
         </div>
+        <Footer listMenu={listMenu} logo={logo}/>
         </>
     )
 }

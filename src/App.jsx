@@ -1,10 +1,13 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { LayoutContent } from "./Components/Layout"
 import logo from "./assets/img/logmr.jpeg"
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { faHeadset, faMicrochip, faNetworkWired, faShield } from "@fortawesome/free-solid-svg-icons"
+import { CardMobil } from "./Components/CardMobil"
 
 const App = () => {
-const listMenu = ['Home','Mobil' , 'Services', 'Testimonial','Gallery', 'ContactUs'];
+const listMenu = ['Home','Mobil' , 'Services'];
 const [isLoading, setisLoading] = useState(true)
 const [cars,setCars] = useState([])
 
@@ -48,18 +51,12 @@ useEffect(() => {
 
           <div className="flex flex-wrap gap-4 mt-8 text-center">
             <a
-              href="#"
+              href="#Mobil"
               className="block w-full px-12 py-3 text-sm font-medium text-white rounded shadow bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
             >
-              Get Started
+              Cek Mobil
             </a>
 
-            <a
-              href="#"
-              className="block w-full px-12 py-3 text-sm font-medium bg-white rounded shadow text-rose-600 hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
-            >
-              Learn More
-            </a>
           </div>
         </div>
       </div>
@@ -76,38 +73,89 @@ useEffect(() => {
           <p className="text-center">Loading...</p>
         ) : (
           cars.map((car) => (
-          <a href="#" className="relative block border border-gray-100 rounded-tr-3xl">
-            <img
-              src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?q=80&w=2672&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-              className="object-cover w-80 h-80 rounded-tr-3xl"
-            />
-
-            <div className="p-4 text-center">
-              <strong className="text-xl font-medium text-gray-900"> {car.make} </strong><br />
-              <strong className="text-xl font-medium text-gray-900"> {car.model} </strong>
-
-              <p className="mt-2 text-gray-700 text-pretty">
-              ${car.price}
-              </p>
-              <p className="mt-2 text-gray-700 text-pretty">
-              {car.transmission}
-              </p>
-
-              <span
-                className="block px-5 py-3 mt-4 text-sm font-medium tracking-widest text-white uppercase transition-colors bg-indigo-900 border border-indigo-900 rounded-md hover:bg-white hover:text-indigo-900"
-              >
-                Learn More
-              </span>
-            </div>
-          </a>
+            <CardMobil judul={car.make} tittle={car.model} harga={car.price} tipe={car.transmission} />
           )))}
 
         </div>
       </div>
     </section>
     <section id="Services">
+      <div className="flex justify-center w-full min-h-screen px-8 py-8 bg-white ">
+      <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16">
+        <div className="mx-auto text-center lg:mx-4 lg:text-left ">
+          <h2 className="text-3xl font-bold sm:text-4xl">Kenapa Memilih Kami ?</h2>
 
+          <p className="mt-4 text-gray-600">
+          Kami menawarkan berbagai solusi transportasi termasuk rental mobil yang aman dan nyaman dengan pilihan kendaraan yang lengkap, reservasi yang mudah, pengelolaan armada yang efisien, asuransi yang komprehensif, serta layanan pelanggan yang andal.
+          </p>
+
+         
+        </div>
+
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+          <a
+            className="block p-4 border border-gray-100 shadow-sm rounded-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+            href="#"
+          >
+            <span className="inline-block p-3 rounded-lg bg-gray-50">
+              <FontAwesomeIcon icon={faNetworkWired} className="size-6" />
+            </span>
+
+            <h2 className="mt-2 font-bold">Akses Mudah dan Jaringan Luas</h2>
+
+            <p className="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
+              Lorem ipsum dolor sit amet consectetur.
+            </p>
+          </a>
+
+          <a
+            className="block p-4 border border-gray-100 shadow-sm rounded-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+            href="#"
+          >
+            <span className="inline-block p-3 rounded-lg bg-gray-50">
+              <FontAwesomeIcon icon={faMicrochip} className="size-6" />
+            </span>
+
+            <h2 className="mt-2 font-bold">Dilengkapi Teknologi Terpercaya</h2>
+
+            <p className="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
+              Lorem ipsum dolor sit amet consectetur.
+            </p>
+          </a>
+
+          <a
+            className="block p-4 border border-gray-100 shadow-sm rounded-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+            href="#"
+          >
+            <span className="inline-block p-3 rounded-lg bg-gray-50">
+            <FontAwesomeIcon icon={faShield} className="size-6" />
+            </span>
+
+            <h2 className="mt-2 font-bold">Layanan Terbaik dengan Jaminan Proteksi</h2>
+
+            <p className="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
+              Lorem ipsum dolor sit amet consectetur.
+            </p>
+          </a>
+
+          <a
+            className="block p-4 border border-gray-100 shadow-sm rounded-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+            href="#"
+          >
+            <span className="inline-block p-3 rounded-lg bg-gray-50">
+              <FontAwesomeIcon icon={faHeadset} className="size-6" />
+            </span>
+
+            <h2 className="mt-2 font-bold">Layanan Pelanggan 24/7</h2>
+
+            <p className="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
+              Lorem ipsum dolor sit amet consectetur.
+            </p>
+          </a>
+
+        </div>
+      </div>
+      </div>
     </section>
     </LayoutContent>
     </>

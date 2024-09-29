@@ -21,13 +21,13 @@ export const Navbar = (props) => {
             </ul>
         </div>
         <div className="navbar-end">
-            <a className="hidden italic btn lg:flex lg:text-center">Booking Sekarang!</a>
+            <a href='#Mobil' className="hidden italic btn lg:flex lg:text-center">Booking Sekarang!</a>
             <div className="lg:hidden">
                 <FontAwesomeIcon className='p-3 bg-white/90 rounded-xl' onClick={() =>setIsOpen(!isOpen)} icon={faBars} />
                 {isOpen ?
                     <ul className="menu fixed right-1 menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                     {listMenu.map((menu, index) => (
-                        <li key={index}><a>{menu}</a></li>
+                        <li key={index}><a href={`#${menu}`}>{menu}</a></li>
                     ))}
                     </ul> :
                     null
